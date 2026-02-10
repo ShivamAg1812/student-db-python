@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student app{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}"> -->
+    {% block css %}{% endblock %}
+    <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+</head>
+<body>
+          <!-- <nav class="inner-nav">
+            <div class="brand">
+                <i data-lucide="graduation-cap"></i>
+                <span>ScholarGate</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/"><i data-lucide="home"></i> Home</a></li>
+                <li><a href="/"><i data-lucide="info"></i> About Us</a></li>
+                <li><a href="/"><i data-lucide="phone"></i> Contact</a></li>
+            </ul>
+        </nav> -->
+
+        {% block content %}{% endblock %}
+           
+</body>
+</html>

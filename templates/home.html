@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+            <h1>Student Registration Portal</h1>
+            <p>Manage student data with ease</p>
+        </header>
+
+        <div class="button-group">
+            <a href="{{url_for('add_std')}}"><button class="btn btn-primary" onclick="navigateTo('add')">
+                <i data-lucide="user-plus"></i>
+                <span>Add Student</span>
+            </button></a>
+            
+            <a href="{{url_for('view_std')}}"><button class="btn btn-secondary" onclick="navigateTo('view')">
+                <i data-lucide="database"></i>
+                <span>View Database</span>
+            </button></a>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 All Rights Reserved</p>
+        </footer>
+    </main>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database | ScholarGate</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='view.css')}}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <main class="glass-card">
+        <nav class="inner-nav">
+            <div class="brand">
+                <i data-lucide="graduation-cap"></i>
+                <span>ScholarGate</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/"><i data-lucide="home"></i> Home</a></li>
+                <li><a href="/"><i data-lucide="info"></i> About Us</a></li>
+                <li><a href="/"><i data-lucide="phone"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="table-content">
+            <header class="table-header">
+                <div class="header-text">
+                    <h2>Student Database</h2>
+                    <p>View, edit, and manage student records</p>
+                </div>
+                <a href="{{url_for('add_std')}}">
+                <button class="btn-add-shortcut" onclick="location.href='add-student.html'">
+                    <i data-lucide="plus"></i> Add New
+                </button></a>
+            </header>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.no.</th>
+                            <th>Name</th>
+                            <th>Reg No.</th>
+                            <th>Department</th>
+                            <th>Email Address</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        {% if all_std|length == 0 %}
+                           <td colspan="6"> <h2>no record available!</h2></td>
+                        {% else %}
+                             {% for std in all_std %}
+                            <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{std.name}}</td>
+                            <td class="reg-cell">{{std.reg_no}}</td>
+                            <td>{{std.department}}</td>
+                            <td>{{std.email}}</td>
+                            <td>
+                                <div class="action-btns">
+                                    <a href="/update/{{std.reg_no}}"><button class="edit-btn" title="Edit"><i data-lucide="pencil">edit</i></button></a>
+                                    <a href="/delete/{{std.reg_no}}"><button class="delete-btn" title="Delete"><i data-lucide="trash-2">delete</i></button>
+                                </div>
+                            </td>
+                        </tr>
+                            {% endfor %}
+                        {% endif %}
+                       
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bottom-footer">
+        <p>© 2026 ScholarGate. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student | ScholarGate</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='add.css')}}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <main class="glass-card">
+        <nav class="inner-nav">
+            <div class="brand">
+                <i data-lucide="graduation-cap"></i>
+                <span>ScholarGate</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/"><i data-lucide="home"></i> Home</a></li>
+                <li><a href="/"><i data-lucide="info"></i> About Us</a></li>
+                <li><a href="/"><i data-lucide="phone"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="form-content">
+            <header>
+                <h2>Register New Student</h2>
+                <p>Fill in the details below to add a student to the database</p>
+            </header>
+
+            <form id="addStudentForm" method="POST" action="{{url_for('add_std')}}">
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Enter full name" required>
+                    </div>
+                    <div class="field">
+                        <label>Registration No.</label>
+                        <input type="text" name="reg_no" placeholder="e.g. 2026-REG-001" required>
+                    </div>
+                    <div class="field">
+                        <label>Department</label>
+                        <select required name="department">
+                            <option value="" disabled selected>Select Department</option>
+                            <option>Computer Science</option>
+                            <option>Information Technology</option>
+                            <option>Electrical Eng.</option>
+                            <option>Mechanical Eng.</option>
+                            <option>Mining Eng.</option>
+                            <option>Civil Eng.</option>
+                            <option>Production Eng.</option>
+                            
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="student@university.edu" required>
+                    </div>
+                </div>
+
+                <div class="button-row">
+                    <button type="submit" class="btn-submit">
+                        <i data-lucide="check"></i> Submit Registration
+                    </button>
+                    <button type="reset" class="btn-clear">
+                        <i data-lucide="rotate-ccw"></i> Clear Form
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bottom-footer">
+        <p>© 2026 ScholarGate. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

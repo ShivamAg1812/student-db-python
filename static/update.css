@@ -1,0 +1,103 @@
+/* Core Glass Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80') center/cover;
+    color: white;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(15px);
+    z-index: -1;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* Header & Badge */
+.form-content { padding: 3rem; }
+.badge {
+    display: inline-block;
+    background: #f1c40f;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* Nav & Form Grid (Reused from Add Student) */
+.inner-nav { display: flex; justify-content: space-between; padding: 1.5rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: bold; }
+.nav-links { display: flex; list-style: none; gap: 1.5rem; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+.field input, .field select {
+    background: rgb(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    outline: none;
+} 
+
+ .readonly-field {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    cursor: not-allowed;
+} 
+
+/* Buttons */
+.button-row { display: flex; gap: 1rem; margin-top: 3rem; }
+
+.btn-update {
+    flex: 2;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-update:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3); }
+
+.btn-cancel {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover { background: rgba(214, 48, 49, 0.2); color: #ff7675; }
+
+.bottom-footer { margin-top: 2rem; opacity: 0.4; font-size: 0.8rem; text-align: center; width: 100%; }

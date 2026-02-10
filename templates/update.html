@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Update_std{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='update.css')}}">
+{% endblock %}
+{% block content %}
+<div class="background-overlay"></div>
+
+ <main class="glass-card">
+        <nav class="inner-nav">
+            <div class="brand">
+                <i data-lucide="graduation-cap"></i>
+                <span>ScholarGate</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/"><i data-lucide="home"></i> Home</a></li>
+                <li><a href="/"><i data-lucide="info"></i> About Us</a></li>
+                <li><a href="/"><i data-lucide="phone"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+<section class="form-content">
+    <header>
+        <div class="badge">Editing Mode</div>
+        <h2>Update Student Record</h2>
+        <p>Modify the fields below to update the student's information in the database.</p>
+    </header>
+
+    <form id="updateStudentForm" method="POST" action="/update/{{std_upd.reg_no}}">
+        <div class="form-grid">
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text" name="name" id="updateName" value="{{std_upd.name}}" required>
+            </div>
+            <div class="field">
+                <label>Registration No.</label>
+                <input type="text" id="updateRegNo" value="{{std_upd.reg_no}}" name="reg_no">
+            </div>
+            <div class="field">
+                <label>Department</label>
+                <select id="updateDept" required name="department">
+                    <!-- <option value="" >{{std_upd.department}}</option> -->
+                    <!-- <select name="department" required> -->
+                            <!-- <option value="" disabled selected>Select Department</option>
+                            <option>Computer Science</option>
+                            <option>Information Technology</option>
+                            <option>Electrical Eng.</option>
+                            <option>Mechanical Eng.</option>
+                            <option>Mining Eng.</option>
+                            <option>Civil Eng.</option>
+                            <option>Production Eng.</option> -->
+                         <option value="Computer Science" {% if std_upd.department=="Computer Science" %}selected{% endif %}>Computer Science</option>
+                           
+                        <option value="Information Technology" {% if std_upd.department=="Information Technology"%}selected{% endif %}>Information Technology</option>
+                            
+                        <option value="Electrical Eng." {% if std_upd.department=="Electrical Eng." %}selected{% endif %}>Electrical Eng.</option>
+                           
+                        <option value="Mechanical Eng." {% if std_upd.department=="Mechanical Eng." %}selected{% endif  %}>Mechanical Eng.</option>
+                          
+                        <option value="Mining Eng." {% if std_upd.department=="Mining Eng." %}selected{% endif %}>Mining Eng.</option>
+                            
+                        <option value="Civil Eng." {% if std_upd.department=="Civil Eng." %}selected{% endif %}>Civil Eng.</option>
+                            
+                        <option value="Production Eng." {% if std_upd.department=="Production Eng." %}selected{% endif%}>Production Eng.</option>
+                            
+                    <!-- </select> -->
+
+                </select>
+            </div>
+            <div class="field">
+                <label>Email Address</label>
+                <input type="email" id="updateEmail" value="{{std_upd.email}}" name="email" required>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button type="submit" class="btn-update">
+                <i data-lucide="save"></i> Update Record
+            </button>
+            <button type="button" class="btn-cancel" onclick="history.back()">
+                Cancel
+            </button>
+        </div>
+    </form>
+</section>
+</main>
+
+ <footer class="bottom-footer">
+        <p>© 2026 ScholarGate. All rights reserved.</p>
+    </footer>
+
+<!-- <script src="script.js"></script> -->
+{% endblock %}

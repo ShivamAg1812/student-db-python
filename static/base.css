@@ -1,0 +1,28 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+/* Nav & Form Grid (Reused from Add Student) */
+.inner-nav { display: flex; justify-content: space-between; padding: 1.5rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: bold; }
+.nav-links { display: flex; list-style: none; gap: 1.5rem; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+.field input, .field select {
+    background: rgb(18, 17, 17);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    outline: none;
+}
+
+.readonly-field {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    cursor: not-allowed;
+}
+
+.bottom-footer { margin-top: 2rem; opacity: 0.4; font-size: 0.8rem; text-align: center; width: 100%; }
